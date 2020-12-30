@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.wucfu</groupId>
+    <artifactId>spring-cloud-alibaba-learning</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>sentinel</module>
+        <module>nacos</module>
+        <module>dubbo</module>
+        <module>rocket-mq</module>
+        <module>seata</module>
+    </modules>
+    <properties>
+        <!--spring cloud alibaba 依赖推荐：https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E-->
+
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <spring-boot-admin.version>2.2.9</spring-boot-admin.version>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <spring.cloud.gateway.version>2.2.1.RELEASE</spring.cloud.gateway.version>
+        <spring-cloud-stream.version>Horsham.SR3</spring-cloud-stream.version>
+
+        <!-- alibaba cloud-->
+        <spring.cloud.alibaba.version>2.2.3.RELEASE</spring.cloud.alibaba.version>
+
+        <!-- Apache Dubbo -->
+        <dubbo.version>2.7.6</dubbo.version>
+
+        <curator.version>4.0.1</curator.version>
+
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+
+        <!-- plugin-->
+        <spring-boot.maven.plugin.version>2.3.3.RELEASE</spring-boot.maven.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring-boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring-cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--alibaba-cloud-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--dubbo-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-actuator</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

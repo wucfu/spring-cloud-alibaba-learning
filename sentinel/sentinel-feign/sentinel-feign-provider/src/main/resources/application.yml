@@ -1,0 +1,16 @@
+server:
+  port: 18088
+
+spring:
+  application:
+    name: service-provider-wucfu
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 17.128.1.16:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

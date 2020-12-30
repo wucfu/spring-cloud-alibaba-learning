@@ -1,0 +1,61 @@
+server:
+  port: 18091
+
+spring:
+  application:
+    name: rocketmq-consumer-wucfu
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+        bindings:
+          input1:
+            consumer:
+              orderly: true
+          input2:
+            consumer:
+              orderly: false
+              tags: tagStr
+          input3:
+            consumer:
+              tags: tagObj
+      bindings:
+        input1:
+          destination: test-topic
+          content-type: text/plain
+          group: test-group1
+        input2:
+          consumer:
+            concurrency: 20
+            maxAttempts: 1
+          destination: test-topic
+          content-type: text/plain
+          group: test-group2
+        input3:
+          consumer:
+            concurrency: 20
+          destination: test-topic
+          content-type: application/json
+          group: test-group3
+        input4:
+          consumer:
+            concurrency: 5
+          destination: TransactionTopic
+          content-type: text/plain
+          group: transaction-group
+        input5:
+          destination: pull-topic
+          content-type: text/plain
+          group: pull-topic-group
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+

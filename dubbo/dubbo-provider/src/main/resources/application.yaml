@@ -1,0 +1,27 @@
+dubbo:
+  scan:
+    base-packages: com.wucfu.example.dubbo
+  protocols:
+    dubbo:
+      port: -1
+    rest:
+      name: rest
+      port: 8888
+      server: tomcat
+
+feign:
+  hystrix:
+    enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: dubborestmetadata
+# 启用配置
+spring:
+  profiles:
+    active: nacos

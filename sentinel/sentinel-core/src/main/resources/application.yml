@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: sentinel-example
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      eager: true
+      datasource:
+        ds1:
+          file:
+            file: classpath:flowrule.json
+            data-type: json
+            rule-type: flow
+        ds2:
+          file:
+            file: classpath:degraderule.json
+            data-type: json
+            rule-type: degrade
+        ds3:
+          file:
+            file: classpath:authority.json
+            rule-type: authority
+        ds4:
+          file:
+            file: classpath:system.json
+            rule-type: system
+        ds5:
+          file:
+            file: classpath:param-flow.json
+            rule-type: param-flow
+#        ds6:
+#          nacos:
+#            server-addr: 127:0:0:1:8848
+#            username: nacos
+#            password: nacos
+#            dataId: flowrule.json
+#            data-type: json
+#            rule-type: flow
+#      block-page: /errorPage
+#      filter.enabled: false
+#      http-method-specify: false
+#      web-context-unify: true
+server:
+  port: 18083
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  # we can disable health check, default is enable
+  # management.health.sentinel.enabled=false
+  health:
+    diskspace:
+      enabled: false
+
+
+
+
