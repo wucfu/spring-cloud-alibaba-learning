@@ -15,6 +15,7 @@
         <module>dubbo</module>
         <module>rocket-mq</module>
         <module>seata</module>
+        <module>redis</module>
     </modules>
     <properties>
         <!--spring cloud alibaba 依赖推荐：https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E-->
@@ -89,9 +90,6 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-
-
-
         </dependencies>
     </dependencyManagement>
     <build>

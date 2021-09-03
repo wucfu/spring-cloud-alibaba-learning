@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wucfu.example.seata.mapper.AccountMapper" >
+
+    <update id="reduceBalance" parameterType="map">
+       UPDATE Account SET balance = balance - #{balance} WHERE id = #{userId}
+    </update>
+
+    <select id="selectByUserId" parameterType="int" resultType="Account">
+        select * from account where user_id=#{userId}
+    </select>
+</mapper>
