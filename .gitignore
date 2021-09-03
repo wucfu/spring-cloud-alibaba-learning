@@ -1,3 +1,35 @@
-*.iml
-/.ideas
+# maven ignore
 target/
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.doc
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# log ignore
+*catalina.home*/
+
+# loghub ignore
+**/logs/*
+/logs/*
+*.gz
+**_log*
+**loghub*

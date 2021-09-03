@@ -16,7 +16,6 @@
         <module>seata-service-order</module>
         <module>seata-service-account</module>
         <module>seata-service-storage</module>
-        <module>seata-service-storage</module>
     </modules>
 
 
